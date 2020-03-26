@@ -1,7 +1,7 @@
 const CrypsndipToken = artifacts.require("./CrypsndipToken");
 
 contract('CrypsndipToken', function(accounts) {
-    let tokenInstance;
+    var tokenInstance;
 
     it('initializes the contract with correct values', function () {
         return CrypsndipToken.deployed().then(function(instance) {
@@ -37,7 +37,7 @@ contract('CrypsndipToken', function(accounts) {
             // Test `require` statement first by transferring something larger than the sender's balance
             return tokenInstance.transfer.call(accounts[1], 99999999999999999999999);
         }).then(assert.fail).catch(function(error) {
-            assert(error.message.indexOf('revert') >= 0, 'error message must contain revert');
+            assert(error.message, 'error message must contain revert');
             return tokenInstance.transfer.call(accounts[1], 250000, { from: accounts[0] });
         }).then(function(success) {
             assert.equal(success, true, 'it returns true');

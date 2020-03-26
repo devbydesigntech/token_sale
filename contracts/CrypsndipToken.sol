@@ -30,7 +30,7 @@ contract CrypsndipToken {
 
     function transfer(address _to, uint256 _value) public returns (bool success) {
 
-        require(balanceOf[msg.sender] >= _value);
+        require(balanceOf[msg.sender] >= _value, 'Insufficient sender balance');
 
         balanceOf[msg.sender] -= _value;
         balanceOf[_to] += _value;
@@ -50,8 +50,8 @@ contract CrypsndipToken {
     }
 
     function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
-        require(_value <= balanceOf[_from]);
-        require(_value <= allowance[_from][msg.sender]);
+        require(_value <= balanceOf[_from], 'Amount should not exceed balance');
+        require(_value <= allowance[_from][msg.sender], 'Amount should not exceed allowance');
 
         balanceOf[_from] -= _value;
         balanceOf[_to] += _value;
