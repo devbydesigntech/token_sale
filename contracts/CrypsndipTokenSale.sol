@@ -39,7 +39,5 @@ contract CrypsndipTokenSale {
         require(tokenContract.transfer(admin, tokenContract.balanceOf(address(this))));
 
         admin.transfer(address(this).balance);
-
-
     }
 }
