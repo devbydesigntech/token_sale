@@ -1,9 +1,9 @@
 pragma solidity >=0.4.21 <0.7.0;
 
 contract CrypsndipToken {
-    string public name = "Crypsndip Token";
-    string public symbol = "CRPS";
-    string public standard = "Crypsndip Token v1.0";
+    string public name = "Toilet Paper Token";
+    string public symbol = "TPT";
+    string public standard = "Toilet Paper Token v1.0";
     uint256 public totalSupply;
 
     event Transfer (
